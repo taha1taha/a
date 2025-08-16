@@ -14,14 +14,12 @@
     scroll-behavior: smooth;
   }
 
-  /* Arka plan canvas */
   canvas {
     position: fixed; inset: 0;
     width: 100%; height: 100%;
     z-index: 0; display: block;
   }
 
-  /* Navbar */
   header {
     position: fixed; top: 0; left: 0; right: 0;
     padding: 16px 28px;
@@ -49,7 +47,6 @@
   }
   nav a:hover::after { width: 100%; }
 
-  /* Discord butonu sağa sabit */
   .discord-btn {
     margin-left: auto; display: inline-flex; align-items: center; gap: 8px;
     color: #fff; text-decoration: none; font-weight: 600;
@@ -59,15 +56,13 @@
   }
   .discord-btn img { width: 22px; height: 22px; display: block; }
 
-  /* Bölüm genel */
   section {
     position: relative; z-index: 1;
     padding: 120px 20px 60px;
     max-width: 980px; margin: 0 auto; text-align: center;
-    scroll-margin-top: 96px; /* sabit header için */
+    scroll-margin-top: 96px;
   }
 
-  /* Ana kart (Home) */
   .about-card {
     background: rgba(255,255,255,.05);
     backdrop-filter: blur(6px);
@@ -80,10 +75,8 @@
   .about-card h2 { margin: 14px 0 6px; font-size: 2rem; }
   .about-card p { margin: 0 auto 6px; max-width: 720px; color: #d9d9d9; line-height: 1.55; }
 
-  /* Help */
   #help p { max-width: 720px; margin: 8px auto 0; color: #cfcfcf; }
 
-  /* Invite (Discord davet) */
   #invite .invite-card{
     margin: 24px auto 0; max-width: 580px;
     background: rgba(255,255,255,.06); border-radius: 12px;
@@ -96,7 +89,6 @@
   }
   #invite .invite-cta:hover{ background: #dcdcdc; }
 
-  /* Credits */
   #credits .credit-list{ list-style: none; padding: 0; margin: 16px 0 0; }
   #credits .credit-list li{ margin: 10px 0; }
   #credits .credit-list a{ color: #00aaff; text-decoration: none; }
@@ -108,11 +100,10 @@
     border-top: 1px solid rgba(255,255,255,.1);
   }
 
-  /* Responsive: dar ekranda buton metnini gizle (ikon kalsın) */
   @media (max-width: 768px){
     nav{ gap: 16px; }
     .logo-text{ font-size: 1.3rem; letter-spacing: 2px; }
-    .discord-btn span{ display: none; } /* metni gizle */
+    .discord-btn span{ display: none; } 
   }
 </style>
 </head>
@@ -125,7 +116,6 @@
 
   <nav>
     <a href="#home">Home</a>
-    <!-- About, kart içindeki "About Us" başlığına gider -->
     <a href="#aboutus">About</a>
     <a href="#help">Help</a>
     <a href="#credits">Credits</a>
@@ -137,36 +127,31 @@
   </a>
 </header>
 
-<!-- HOME -->
 <section id="home">
   <div class="about-card" data-tilt>
     <img src="https://i.postimg.cc/vmRhbjjW/image.png">
-    <h2>About Us</h2>
-    <p>LUMA delivers optimized Lua scripts for Roblox executors and Studio, combining performance, security, and creativity in every line of code.</p>
+    <h2>About LUMA</h2>
+    <p>LUMA delivers you safe lua scripts made by our developers for Roblox Studio and Roblox executors.</p>
   </div>
 </section>
 
-<!-- CREDITS -->
 <section id="credits">
   <h2>Credits</h2>
   <div class="credits-container">
-    <!-- 1. Kişi -->
     <div class="credit-card" data-tilt>
-      <img class="avatar" src="https://cdn.discordapp.com/avatars/1328464037478137898/42b89c15967eda41617dc4909b9ce72b?size=1024" alt="Avatar">
+      <img class="avatar" src="https://cdn.discordapp.com/avatars/1328464037478137898/78422641228eab1aa3936c91429f73cc?size=1024" alt="Avatar">
       <h3 class="displayname">ta.zer </h3>
       <w class="username">@ta.zer </w>
       <p class="Role">Owner Of LUMA</p>
     </div>
 
-    <!-- 2. Kişi -->
     <div class="credit-card" data-tilt>
       <img class="avatar" src="https://cdn.discordapp.com/avatars/773964759162421328/59db1daf99a1248cd8e9182aff56b64a?size=1024" alt="Avatar">
       <w class="displayname">hackforyouoin </w>
       <p class="username">@pencizorno76</p>
-      <p class="Role">Programmer and Co-founder of LUMA </p>
+      <p class="Role">Co Owner Of LUMA </p>
     </div>
 
-    <!-- 3. Kişi -->
     <div class="credit-card" data-tilt>
       <img class="avatar" src="https://cdn.discordapp.com/avatars/1389711445205450773/5f426aa05384dad7b55e3feefaabfbdb?size=1024" alt="Avatar">
       <h3 class="displayname">  ᲼ </h3>
@@ -233,13 +218,11 @@
 </script>
 
 
-<!-- HELP -->
 <section id="help">
   <h2>Help & Support</h2>
   <p>If you experience any issues, need assistance, or have a request for a specific Lua script, please open a ticket in our #Ticket-Support channel on Discord. Our team will respond as soon as possible to assist you and, if possible, provide the script you need.</p>
 </section>
 
-<!-- INVITE (davet kısmı geri eklendi) -->
 <section id="invite">
   <h2>Join Our Discord</h2>
   <div class="invite-card">
@@ -256,7 +239,6 @@
 </footer>
 
 <script>
-  // Partikül arka plan (senin kullandığın sistemle aynı mantıkta)
   const canvas = document.getElementById('bgCanvas');
   const ctx = canvas.getContext('2d');
   let width, height;
