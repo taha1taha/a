@@ -81,6 +81,11 @@
     margin: 24px auto 0; max-width: 580px;
     background: rgba(255,255,255,.06); border-radius: 12px;
     padding: 18px; display: grid; gap: 14px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  #invite .invite-card:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 0 25px rgba(255,255,255,0.15);
   }
   #invite .invite-cta{
     display: inline-flex; align-items: center; gap: 10px;
@@ -145,6 +150,30 @@
     font-size: 0.95rem;
     color: #ccc;
   }
+
+  /* Animasyonlar */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #help, #invite {
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+  }
+  #help { animation-delay: .2s; }
+  #invite { animation-delay: .4s; }
+
+  #help:hover, #invite:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+  }
 </style>
 </head>
 <body>
@@ -171,7 +200,7 @@
   <div class="about-card" data-tilt>
     <img src="https://i.postimg.cc/vmRhbjjW/image.png">
     <h2>About LUMA</h2>
-    <p>LUMA delivers you safe lua scripts made by our developers for Roblox Studio and Roblox executors.</p>
+    <p>LUMA delivers our costumers lua scripts which is made by our developers for Roblox Studio and Roblox executors.</p>
   </div>
 </section>
 
@@ -179,7 +208,7 @@
   <h2>Credits</h2>
   <div class="credits-container">
     <div class="credit-card" data-tilt>
-      <img class="avatar" src="https://images-ext-1.discordapp.net/external/tj3tiimPx7z87T8lERmBsgQmXgrNa4hVcL1YLR3Uk4E/%3Fsize%3D256/https/cdn.discordapp.com/avatars/1328464037478137898/78422641228eab1aa3936c91429f73cc.png?format=webp&quality=lossless&width=307&height=307" alt="Avatar">
+      <img class="avatar" src="https://cdn.discordapp.com/avatars/1328464037478137898/29ed7da1dcc9b694daa180f2ce750b04?size=1024" alt="Avatar">
       <h3 class="displayname">ta.zer </h3>
       <w class="username">@ta.zer </w>
       <p class="Role">Owner Of LUMA</p>
@@ -225,6 +254,21 @@
 </footer>
 
 <script>
+  // Scroll ile görünce animasyonu tetikleme
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('#help, #invite').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
+
+  // Arkaplan parçacık animasyonu
   const canvas = document.getElementById('bgCanvas');
   const ctx = canvas.getContext('2d');
   let width, height;
